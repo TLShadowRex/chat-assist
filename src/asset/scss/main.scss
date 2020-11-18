@@ -1,0 +1,234 @@
+@import "_variables";
+
+$fa-font-path: '../../../node_modules/@fortawesome/fontawesome-free/webfonts';
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+
+
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    overflow-x:auto;
+}
+
+.flex {
+    display: flex;
+    &.horizontal {
+        flex-direction: row;
+    }
+    &.vertical {
+        flex-direction: column;
+    }
+    &.wrap {
+        flex-wrap: wrap;
+    }
+    &.noWrap {
+        flex-wrap: nowrap;
+    }
+    .flex-element {
+        flex: 1;
+    }
+    .vertical-items-center {
+        justify-items:center;
+    }
+    .vertical-align-items-center {
+        align-items:center;
+    }    
+}
+
+.controlBar {
+    height: 100%;
+    background-color: $primary;
+    border-right: 1px solid black;
+    .btn {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .chat.connection {
+        background-color: black;
+        color: white;
+    }
+    .chat.connected {
+        background-color: rgba(0, 255, 0, 0.1);
+    }
+}
+
+.btn {
+    padding: 10px;
+    background-color: white;
+    color: $darkText;
+    margin: 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:focus,
+    &:active {
+        background-color: $primary;
+        color: $brightText;
+    }
+}
+
+.filterField {
+    flex: 1;
+    .title {
+        border-bottom: 1px solid black;
+    }
+}
+
+#app,
+.base {
+    height: 100%;
+}
+
+.filterField {
+    background-color: white;
+    border-right: 1px solid black;
+    background-color: $primary;
+    .title {
+        padding: 5px 15px;
+        background-color: $primary;
+        color: white;
+        justify-content: flex-start;
+        display:flex;
+        height:40px;
+        align-content:center;
+        align-items:center;
+        .btn {
+            padding:5px;
+        }
+    }
+
+    .messages {
+        height: 100%;
+        padding: 10px;
+        overflow:auto;
+        flex:1;
+        .messageContainer {
+            border: 1px solid $tertiary;
+            background-color: $secondary;
+            margin-bottom: 10px;
+            .remove {
+                margin-left:10px;
+                padding:5px;
+                background-color:$tertiary;
+                font-size:10px;
+            }
+
+            .messageTitle {
+                font-size:10px;
+                padding:2px 5px;
+                background-color:white;
+            }
+
+            .message {
+                padding:5px;
+                .external-link {
+                    color:black;
+                    text-decoration:underline;
+                    cursor:pointer;
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    min-height:100%;
+    &.visible {
+        display:block;
+    }
+    .fadeOut {
+        position:fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index:1;
+        background-color:rgba(0,0,0,0.1);
+    }
+    .dialog {
+        left:50%;
+        top:50%;
+        position:absolute;
+        transform:translate(-50%,-50%);
+        background-color:white;
+        border:1px solid black;
+        border-radius:3px;
+        z-index:2;
+        .dialogHeader {
+            position:relative;
+            padding:5px 30px;
+            background-color:lightgray;
+            .close {
+                position:absolute;
+                right:15px;
+                top:5px;
+                cursor:pointer;
+            }
+        }
+        .dialogBody {
+            padding:15px;
+            max-height:80vh;
+            overflow-y:auto;
+        }
+    }
+    &.wide .dialog {
+        min-width:70vw;
+    }
+    &.no-padding .dialogBody {
+        padding:0;
+    }
+}
+.top-spacing {
+    margin-top:15px;
+}
+
+.bottom-spacing {
+    margin-bottom:15px;
+}
+
+.input {
+    position:relative;
+    label {
+        position:absolute;
+        left:15px;
+        top:3px;
+        font-size:10px;
+    }
+    input {
+        padding:15px 15px 5px;
+        font-size:15px;
+        width:100%;
+        border:1px solid black;
+        border-radius:0;
+    }
+}
+
+.vertical-space {
+    width:15px;
+}
+
+.full-height {
+    height:100%;
+}
+
+.external-link {
+    margin:0 0.25em;
+}
