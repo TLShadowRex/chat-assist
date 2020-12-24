@@ -10,7 +10,7 @@ export default function Message({ data, useBlacklist = true, messageKey = null }
         return null;
     }
 
-    const isUrl = (string) => {
+    const isUrl = (string) => { // Thx to liadala
         console.log(string);
         try {
             new URL(string);
