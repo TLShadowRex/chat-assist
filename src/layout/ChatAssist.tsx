@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 const ipcRenderer = window.require('electron').ipcRenderer;
-import moment from 'moment';
 
 import Tokens from '../settings/Tokens';
 import EventService from '../service/EventService';
@@ -10,11 +9,8 @@ import Modal from './Modal';
 import Chat from '../model/Chat';
 import FilterSetting from '../settings/Filters';
 import FilterRule from '../model/FilterRule';
-import ChatUser from '../component/ChatUser';
-import ChatStamp from '../component/ChatStamp';
 import BlackList from '../settings/BlackList';
 import Message from '../component/Message';
-console.log(ConfigService.config.tmiToken);
 export default function ChatAssists() {
     let [filters, setFilters] = useState(ConfigService.config?.filters ?? []);
     let [configured, setConfigured] = useState(true);

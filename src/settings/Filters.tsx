@@ -16,7 +16,7 @@ export default function FilterSetting({filter}) {
         }
         let filterRule = new FilterRule();
         filterRule.rule = rule;
-        filterRule.events = events;
+        filterRule.events = events.length == 0 ? ['chat']: events; //Added defaulting
         ConfigService.config.filters = [...ConfigService.config.filters, filterRule];
         EventService.trigger('config.set', ConfigService.config);
         rule = '';
@@ -25,7 +25,7 @@ export default function FilterSetting({filter}) {
     return <div>
         <div className="event">
             {events.map((event) => <div key={event}>{event}</div>)}
-            <input type="text" onChange={(event) => {
+            {/*<input type="text" onChange={(event) => {
                 setEvent(event.target.value);
             }} value={event} />
             <button onClick={() => {
@@ -33,7 +33,7 @@ export default function FilterSetting({filter}) {
                     setEvents([...events, event]);
                     event = '';
                 }
-            }}></button>
+            }}>addEvent</button> //Removed add event since we only have chat event for now*/} 
         </div>
         <div className="rule">
             <input type="text" onChange={(event) => {

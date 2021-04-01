@@ -27,7 +27,8 @@ function createWindow() {
     width: config.width,
     height: config.height,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      devTools:false
     }
   });
   win.on('resize',(event) => {
