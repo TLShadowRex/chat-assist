@@ -37,6 +37,7 @@ function createWindow() {
     var height = size[1];
     updateConfig({'width':width,'height':height});
   })
+  win.setApplicationMenu(null)
 
   // and load the index.html of the app.
   win.loadFile(__dirname + '/dist/index.html');
