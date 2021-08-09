@@ -5,6 +5,8 @@ import MessageService from '../service/MessageService';
 import ChatStamp from './ChatStamp';
 import ChatUser from './ChatUser';
 
+const driveLetterRegex = new RegExp('^[a-z]:', 'i');
+
 export default function Message({ data, useBlacklist = true, messageKey = null }) {
     if (useBlacklist == true && ConfigService.config.blackList.includes(data.context["display-name"])) {
         return null;
@@ -20,13 +22,17 @@ export default function Message({ data, useBlacklist = true, messageKey = null }
         return true;
     }
 
+    const isDriveLetter = (string) => {
+        return driveLetterRegex.test(string);
+    }
+
     const applyFilters = (message) => {
         console.log(message);
         let segments = message.split(/\s+/);
         let result = [];
         let idx = 0;
         for(let segment of segments) {
-            if(true == isUrl(segment)) {
+            if(isUrl(segment) && !isDriveLetter(segment)) {
                 result.push(<span className={'external-link'} onClick={() => { openLink(segment) }} key={"l-" + idx}>[link]</span>);
             } else {
                 result.push(segment+" ");
